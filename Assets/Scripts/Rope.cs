@@ -27,7 +27,7 @@ public class Rope : MonoBehaviour {
         // не пришлось искать его в каждом кадре.
         lineRenderer = GetComponent<LineRenderer>();
         // Сбросить состояние веревки в исходное.
-        ResetLength();
+        //ResetLength();
     }
     // Удаляет все звенья и создает новое.
     public void ResetLength() {
@@ -42,19 +42,14 @@ public class Rope : MonoBehaviour {
     // Добавляет новое звено веревки к верхнему концу.
     void CreateRopeSegment() {
         // Создать новое звено.
-        GameObject segment = (GameObject)Instantiate(
-            ropeSegmentPrefab,
-            this.transform.position,
-            Quaternion.identity);
+        GameObject segment = (GameObject)Instantiate(ropeSegmentPrefab, this.transform.position, Quaternion.identity);
         // Сделать звено потомком объекта this
         // и сохранить его мировые координаты
         segment.transform.SetParent(this.transform, true);
         // Получить твердое тело звена
-        Rigidbody2D segmentBody = segment
-            .GetComponent<Rigidbody2D>();
+        Rigidbody2D segmentBody = segment.GetComponent<Rigidbody2D>();
         // Получить длину сочленения из звена
-        SpringJoint2D segmentJoint =
-            segment.GetComponent<SpringJoint2D>();
+        SpringJoint2D segmentJoint = segment.GetComponent<SpringJoint2D>();
         // Ошибка, если шаблон звена не имеет
         // твердого тела или пружинного сочленения - нужны оба
         if (segmentBody == null || segmentJoint == null) {
@@ -69,10 +64,8 @@ public class Rope : MonoBehaviour {
         // с ногой гномика
         if (ropeSegments.Count == 1) {
             // Соединить звено с сочленением несущего объекта
-            SpringJoint2D connectedObjectJoint =
-                connectedObject.GetComponent<SpringJoint2D>();
-            connectedObjectJoint.connectedBody
-                = segmentBody;
+            SpringJoint2D connectedObjectJoint = connectedObject.GetComponent<SpringJoint2D>();
+            connectedObjectJoint.connectedBody = segmentBody;
             connectedObjectJoint.distance = 0.1f;
             // Установить длину звена в максимальное значение
             segmentJoint.distance = maxRopeSegmentLength;
@@ -82,8 +75,7 @@ public class Rope : MonoBehaviour {
             // Получить второе звено
             GameObject nextSegment = ropeSegments[1];
             // Получить сочленение для соединения
-            SpringJoint2D nextSegmentJoint =
-                nextSegment.GetComponent<SpringJoint2D>();
+            SpringJoint2D nextSegmentJoint = nextSegment.GetComponent<SpringJoint2D>();
             // Присоединить сочленение к новому звену
             nextSegmentJoint.connectedBody = segmentBody;
             // Установить начальную длину сочленения нового звена
@@ -106,10 +98,8 @@ public class Rope : MonoBehaviour {
         GameObject topSegment = ropeSegments[0];
         GameObject nextSegment = ropeSegments[1];
         // Соединить второе звено с опорой для веревки.
-        SpringJoint2D nextSegmentJoint =
-            nextSegment.GetComponent<SpringJoint2D>();
-        nextSegmentJoint.connectedBody =
-            this.GetComponent<Rigidbody2D>();
+        SpringJoint2D nextSegmentJoint = nextSegment.GetComponent<SpringJoint2D>();
+        nextSegmentJoint.connectedBody = this.GetComponent<Rigidbody2D>();
         // Удалить верхнее звено из списка и уничтожить его.
         ropeSegments.RemoveAt(0);
         Destroy (topSegment);
@@ -117,19 +107,14 @@ public class Rope : MonoBehaviour {
     // При необходимости в каждом кадре длина веревки
     // удлиняется или укорачивается
     void Update() {
-        //isIncreasing = Input.GetKey(KeyCode.S);
-        //isDecreasing = Input.GetKey(KeyCode.W);
-        
         // Получить верхнее звено и его сочленение.
         GameObject topSegment = ropeSegments[0];
-        SpringJoint2D topSegmentJoint =
-            topSegment.GetComponent<SpringJoint2D>();
+        SpringJoint2D topSegmentJoint = topSegment.GetComponent<SpringJoint2D>();
         if (isIncreasing) {
             // Веревку нужно удлинить. Если длина сочленения больше
             // или равна максимальной, добавляется новое звено;
             // иначе увеличивается длина сочленения звена.
-            if (topSegmentJoint.distance >=
-                maxRopeSegmentLength) {
+            if (topSegmentJoint.distance >= maxRopeSegmentLength) {
                 CreateRopeSegment();
             } else {
                 topSegmentJoint.distance += ropeSpeed * Time.deltaTime;
@@ -153,25 +138,19 @@ public class Rope : MonoBehaviour {
             // равно числу звеньев плюс одна точка
             // на верхней опоре плюс одна точка
             // на ноге гномика.
-            lineRenderer.positionCount
-                = ropeSegments.Count + 2;
+            lineRenderer.positionCount = ropeSegments.Count + 2;
             // Верхняя вершина всегда соответствует положению опоры.
             lineRenderer.SetPosition(0,
                 this.transform.position);
             // Передать визуализатору координаты всех
             // звеньев веревки.
             for (int i = 0; i < ropeSegments.Count; i++) {
-                lineRenderer.SetPosition(i+1,
-                    ropeSegments[i].transform.position);
+                lineRenderer.SetPosition(i+1, ropeSegments[i].transform.position);
             }
             // Последняя точка соответствует точке привязки
             // несущего объекта.
-            SpringJoint2D connectedObjectJoint =
-                connectedObject.GetComponent<SpringJoint2D>();
-            lineRenderer.SetPosition(
-                ropeSegments.Count + 1,
-                connectedObject.transform.
-                    TransformPoint(connectedObjectJoint.anchor)
+            SpringJoint2D connectedObjectJoint = connectedObject.GetComponent<SpringJoint2D>();
+            lineRenderer.SetPosition(ropeSegments.Count + 1, connectedObject.transform.TransformPoint(connectedObjectJoint.anchor)
             );
         }
     }

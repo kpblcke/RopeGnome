@@ -20,13 +20,10 @@ public class CameraFollow : MonoBehaviour {
             // Получить его позицию
             Vector3 newPosition = this.transform.position;
             // Определить, где камера должна находиться
-            newPosition.y = Mathf.Lerp (newPosition.y,
-                target.position.y, followSpeed);
+            newPosition.y = Mathf.Lerp (newPosition.y, target.position.y, followSpeed);
             // Предотвратить выход позиции за граничные точки
-            newPosition.y =
-                Mathf.Min(newPosition.y, topLimit);
-            newPosition.y =
-                Mathf.Max(newPosition.y, bottomLimit);
+            newPosition.y = Mathf.Min(newPosition.y, topLimit);
+            newPosition.y = Mathf.Max(newPosition.y, bottomLimit);
             // Обновить местоположение
             transform.position = newPosition;
         }
@@ -35,12 +32,8 @@ public class CameraFollow : MonoBehaviour {
     // граничной точки до нижней.
     void OnDrawGizmosSelected() {
         Gizmos.color = Color.yellow;
-        Vector3 topPoint =
-            new Vector3(this.transform.position.x,
-                topLimit, this.transform.position.z);
-        Vector3 bottomPoint =
-            new Vector3(this.transform.position.x,
-                bottomLimit, this.transform.position.z);
+        Vector3 topPoint = new Vector3(this.transform.position.x, topLimit, this.transform.position.z);
+        Vector3 bottomPoint = new Vector3(this.transform.position.x, bottomLimit, this.transform.position.z);
         Gizmos.DrawLine(topPoint, bottomPoint);
     }
 }

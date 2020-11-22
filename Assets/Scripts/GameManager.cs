@@ -95,8 +95,7 @@ public class GameManager : Singleton<GameManager> {
             // (чтобы коллайдеры перестали сообщать о столкновениях с ним)
             currentGnome.gameObject.tag = "Untagged";
             // Найти все объекты с тегом "Player" и удалить этот тег
-            foreach (Transform child in
-                currentGnome.transform) {
+            foreach (Transform child in currentGnome.transform) {
                 child.gameObject.tag = "Untagged";
             }
             // Установить признак отсутствия текущего гномика
