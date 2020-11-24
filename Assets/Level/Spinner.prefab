@@ -92,6 +92,8 @@ GameObject:
   - component: {fileID: 987897425140735632}
   - component: {fileID: 1328398382196038116}
   - component: {fileID: 8814076350600765369}
+  - component: {fileID: 4518586104642852944}
+  - component: {fileID: 4804289409325970985}
   m_Layer: 0
   m_Name: SpinnerBladesClean
   m_TagString: Untagged
@@ -203,6 +205,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 4518586104642852944}
+        m_MethodName: SwapSprite
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   playAudioOnTouch: 1
@@ -225,6 +238,48 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &4518586104642852944
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4730601734989066114}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 253c66fcc5988d4489088371b312a434, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteToUse: {fileID: 21300000, guid: 2ab5a02abc6c286458f0cbb193397f1d, type: 3}
+  spriteRenderer: {fileID: 2151170644343943371}
+--- !u!114 &4804289409325970985
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4730601734989066114}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d948d58d815a5c545aed3bed596368ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onReset:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4518586104642852944}
+        m_MethodName: ResetSprite
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!1 &6639547905472332211
 GameObject:
   m_ObjectHideFlags: 0

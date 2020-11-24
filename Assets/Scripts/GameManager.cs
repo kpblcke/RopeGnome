@@ -30,7 +30,7 @@ public class GameManager : Singleton<GameManager> {
     // для Unity Events
     public bool gnomeInvincible { get; set; }
     // Задержка перед созданием нового гномика после гибели
-    public float delayAfterDeath = 1.0f;
+    public float delayAfterDeath = 2.5f;
     // Звук, проигрываемый в случае гибели гномика
     public AudioClip gnomeDiedSound;
     // Звук, проигрываемый в случае победы в игре

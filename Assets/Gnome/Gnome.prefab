@@ -1091,7 +1091,8 @@ MonoBehaviour:
   deathPrefab: {fileID: 4876992446416556578, guid: 909bdf54be6c55a4fb9ead5e91fbca2a,
     type: 3}
   flameDeathPrefab: {fileID: 0}
-  ghostPrefab: {fileID: 0}
+  ghostPrefab: {fileID: 8288709872140768035, guid: 15bd52c1298eb0241a7ab74080fb4d8c,
+    type: 3}
   delayBeforeRemoving: 3
   delayBeforeReleasingGhost: 0.25
   bloodFountainPrefab: {fileID: 516521709609616601, guid: 45bb12a58d7406d48827542ca57815f1,
