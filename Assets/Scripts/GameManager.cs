@@ -30,7 +30,7 @@ public class GameManager : Singleton<GameManager> {
     // для Unity Events
     public bool gnomeInvincible { get; set; }
     // Задержка перед созданием нового гномика после гибели
-    public float delayAfterDeath = 1.0f;
+    public float delayAfterDeath = 2.5f;
     // Звук, проигрываемый в случае гибели гномика
     public AudioClip gnomeDiedSound;
     // Звук, проигрываемый в случае победы в игре
@@ -95,8 +95,7 @@ public class GameManager : Singleton<GameManager> {
             // (чтобы коллайдеры перестали сообщать о столкновениях с ним)
             currentGnome.gameObject.tag = "Untagged";
             // Найти все объекты с тегом "Player" и удалить этот тег
-            foreach (Transform child in
-                currentGnome.transform) {
+            foreach (Transform child in currentGnome.transform) {
                 child.gameObject.tag = "Untagged";
             }
             // Установить признак отсутствия текущего гномика

@@ -29,32 +29,35 @@ public class BodyPart : MonoBehaviour {
     // Это означает, что отделенная часть тела не будет мешать
     // гномику взять сокровище.
     public void Update() {
-// Если часть тела не отделена, ничего не делать
+    // Если часть тела не отделена, ничего не делать
         if (detached == false) {
             return;
         }
-        // Твердое тело прекратило падение?
-        var rigidbody = GetComponent<Rigidbody2D>();
-        if (rigidbody.IsSleeping()) {
-            // Если да, удалить все сочленения...
-            foreach (Joint2D joint in
-                GetComponentsInChildren<Joint2D>()) {
-                Destroy (joint);
-            }
-            // ...твердые тела...
-            foreach (Rigidbody2D body in
-                GetComponentsInChildren<Rigidbody2D>()) {
-                Destroy (body);
-            }
-            // ...и коллайдеры.
-            foreach (Collider2D collider in
-                GetComponentsInChildren<Collider2D>()) {
-                Destroy (collider);
-            }
-            // В конце удалить компонент с этим сценарием.
-            Destroy (this);
-        }
+        StartCoroutine(destroyCoroutine());
     }
+
+    IEnumerator destroyCoroutine()
+    {
+        yield return new WaitForSeconds(3f);
+        foreach (Joint2D joint in
+            GetComponentsInChildren<Joint2D>()) {
+            Destroy (joint);
+        }
+        // ...твердые тела...
+        foreach (Rigidbody2D body in
+            GetComponentsInChildren<Rigidbody2D>()) {
+            Destroy (body);
+        }
+        // ...и коллайдеры.
+        foreach (Collider2D collider in
+            GetComponentsInChildren<Collider2D>()) {
+            Destroy (collider);
+        }
+        // В конце удалить компонент с этим сценарием.
+        Destroy (this.gameObject);
+        
+    }
+    
     // Заменяет спрайт этой части тела, исходя из
     // вида полученного повреждения
     public void ApplyDamageSprite(

@@ -43,12 +43,12 @@ public class Gnome : MonoBehaviour {
         switch (type) {
             case DamageType.Burning:
                 if (flameDeathPrefab != null) {
-                    Instantiate(flameDeathPrefab, cameraFollowTarget.position, cameraFollowTarget.rotation);
+                    Instantiate(flameDeathPrefab, cameraFollowTarget.position, cameraFollowTarget.rotation, transform);
                 }
                 break;
             case DamageType.Slicing:
                 if (deathPrefab != null) {
-                    Instantiate(deathPrefab, cameraFollowTarget.position, cameraFollowTarget.rotation);
+                    Instantiate(deathPrefab, cameraFollowTarget.position, cameraFollowTarget.rotation, transform);
                 }
                 break;
         }
@@ -107,9 +107,11 @@ public class Gnome : MonoBehaviour {
         if (ghostPrefab == null) {
             yield break;
         }
+
+        Vector3 atPosition = transform.position;
         // Ждать delayBeforeReleasingGhost секунд
         yield return new WaitForSeconds(delayBeforeReleasingGhost);
         // Добавить дух
-        Instantiate(ghostPrefab, transform.position, Quaternion.identity);
+        Instantiate(ghostPrefab, cameraFollowTarget.position, Quaternion.identity);
     }
 }
