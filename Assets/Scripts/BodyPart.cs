@@ -60,8 +60,7 @@ public class BodyPart : MonoBehaviour {
     
     // Заменяет спрайт этой части тела, исходя из
     // вида полученного повреждения
-    public void ApplyDamageSprite(
-        Gnome.DamageType damageType) {
+    public void ApplyDamageSprite(Gnome.DamageType damageType) {
         Sprite spriteToUse = null;
         switch (damageType) {
             case Gnome.DamageType.Burning:
@@ -72,8 +71,7 @@ public class BodyPart : MonoBehaviour {
                 break;
         }
         if (spriteToUse != null) {
-            GetComponent<SpriteRenderer>().sprite =
-                spriteToUse;
+            GetComponent<SpriteRenderer>().sprite = spriteToUse;
         }
     }
 }

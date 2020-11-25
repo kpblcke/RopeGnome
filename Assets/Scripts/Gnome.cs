@@ -43,7 +43,7 @@ public class Gnome : MonoBehaviour {
         switch (type) {
             case DamageType.Burning:
                 if (flameDeathPrefab != null) {
-                    Instantiate(flameDeathPrefab, cameraFollowTarget.position, cameraFollowTarget.rotation, transform);
+                    Instantiate(flameDeathPrefab, cameraFollowTarget.position, cameraFollowTarget.rotation, cameraFollowTarget);
                 }
                 break;
             case DamageType.Slicing:
@@ -58,8 +58,7 @@ public class Gnome : MonoBehaviour {
         dead = true;
         // найти все дочерние объекты и произвольно
         // отсоединить их сочленения
-        foreach (BodyPart part in
-            GetComponentsInChildren<BodyPart>()) {
+        foreach (BodyPart part in GetComponentsInChildren<BodyPart>()) {
             switch (type) {
                 case DamageType.Burning:
                     // один шанс из трех получить ожог
