@@ -175,8 +175,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40b22bd24d7ea084d94367c36d4e2795, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  detachedSprite: {fileID: 0}
-  burnedSprite: {fileID: 0}
+  detachedSprite: {fileID: 21300000, guid: 2b198ff5f6b074e87a1008a5aa817eaf, type: 3}
+  burnedSprite: {fileID: 21300000, guid: d9af2a0bf4dfa48d8aa416b0730053e0, type: 3}
   bloodFountainOrigin: {fileID: 6901653905784614593}
 --- !u!60 &486920165368369575
 PolygonCollider2D:
@@ -488,8 +488,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40b22bd24d7ea084d94367c36d4e2795, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  detachedSprite: {fileID: 0}
-  burnedSprite: {fileID: 0}
+  detachedSprite: {fileID: 21300000, guid: 16296a8f8be954235bc18fc5a20518cf, type: 3}
+  burnedSprite: {fileID: 21300000, guid: ae4e718476b654f95a5b872306a67625, type: 3}
   bloodFountainOrigin: {fileID: 6901653906731135162}
 --- !u!60 &1641686297931652314
 PolygonCollider2D:
@@ -717,8 +717,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40b22bd24d7ea084d94367c36d4e2795, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  detachedSprite: {fileID: 0}
-  burnedSprite: {fileID: 0}
+  detachedSprite: {fileID: 21300000, guid: 38c4b3fe54b99498bbb449ea10e5516c, type: 3}
+  burnedSprite: {fileID: 21300000, guid: 6818f2e0b32214f168f7c4340fa6e4c7, type: 3}
   bloodFountainOrigin: {fileID: 6901653906944791964}
 --- !u!60 &2283963205692192356
 PolygonCollider2D:
@@ -1090,7 +1090,8 @@ MonoBehaviour:
   holdingArm: {fileID: 6901653906465811815}
   deathPrefab: {fileID: 4876992446416556578, guid: 909bdf54be6c55a4fb9ead5e91fbca2a,
     type: 3}
-  flameDeathPrefab: {fileID: 0}
+  flameDeathPrefab: {fileID: 3064899995385789072, guid: 9ea2e8c47b11cd049bd82d7de4b83147,
+    type: 3}
   ghostPrefab: {fileID: 8288709872140768035, guid: 15bd52c1298eb0241a7ab74080fb4d8c,
     type: 3}
   delayBeforeRemoving: 3
@@ -1298,8 +1299,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40b22bd24d7ea084d94367c36d4e2795, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  detachedSprite: {fileID: 0}
-  burnedSprite: {fileID: 0}
+  detachedSprite: {fileID: 21300000, guid: e93188065d76f4346b397475472ede76, type: 3}
+  burnedSprite: {fileID: 21300000, guid: c9be8ea6c50314e18911f059db74cb5c, type: 3}
   bloodFountainOrigin: {fileID: 6901653905177472482}
 --- !u!231 &6901653907123051651
 SpringJoint2D:
@@ -1576,8 +1577,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40b22bd24d7ea084d94367c36d4e2795, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  detachedSprite: {fileID: 0}
-  burnedSprite: {fileID: 0}
+  detachedSprite: {fileID: 21300000, guid: 8afa1c3dcf75d4b8eb95a65ceac96a4c, type: 3}
+  burnedSprite: {fileID: 21300000, guid: a85ad74fd4b5b4b31a8915ab417dcbde, type: 3}
   bloodFountainOrigin: {fileID: 6901653905471974464}
 --- !u!60 &3292117939240192265
 PolygonCollider2D:
